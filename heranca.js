@@ -2,11 +2,10 @@ const functionalLanguage = {
     paradigm: "Functional"
 }
 
-const scheme = {
-    name: "Scheme",
-    year: 1975,
-    __proto__: functionalLanguage
-}
+const scheme = Object.create(functionalLanguage);
+
+scheme.name = "Scheme";
+scheme.year = 1975;
 
 const javascript = {
     name: "JavaScript",
@@ -14,6 +13,8 @@ const javascript = {
     __proto__: functionalLanguage
 }
 
-console.log(scheme.paradigm)
-console.log(javascript.paradigm)
+for (let key in scheme) {
+    console.log(key, scheme.hasOwnProperty(key))
+}
+
 console.log(functionalLanguage)
