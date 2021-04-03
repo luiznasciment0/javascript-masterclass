@@ -5,3 +5,4 @@ const tableName = parsedStatement[1];
 let columns = parsedStatement[2];
 columns.split(', ')
 console.log(columns.split(', '))
+
