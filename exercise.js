@@ -1,7 +1,7 @@
 const DatabaseError = function(statement, message) {
     this.statement = statement;
     this.message = message;
-}
+};
 
 const database = {
     tables: {},
@@ -13,7 +13,7 @@ const database = {
         this.tables[tableName] = {
             columns: {},
             data: []
-        }
+        };
 
         let columns = parsedStatement[2];
         columns = columns.split(',');
@@ -28,9 +28,10 @@ const database = {
     execute(statement) {
         if (statement.startsWith('create table')) {
             return this.createTable(statement)
-        } else {
-            throw new DatabaseError(statement, `"Syntax error: '${statement}'"`)
         }
+        
+        const message = `Syntax error: '${statement}'`
+        throw new DatabaseError(statement, message)
     }
 };
 
