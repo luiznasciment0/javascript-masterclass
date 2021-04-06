@@ -1,3 +1,8 @@
+const DatabaseError = function(statement, message) {
+    this.statement = statement;
+    this.message = message;
+}
+
 const database = {
     tables: {},
     createTable(command) {
@@ -29,14 +34,8 @@ const database = {
     }
 };
 
-const DatabaseError = function(statement, message) {
-    this.statement = statement;
-    this.message = message;
-}
-
-
 try {
-    database.createTable('create table author (id number, name string, age number, city string, state string, country string)')
+    database.execute('create table author (id number, name string, age number, city string, state string, country string)')
     database.execute("select id, name from author");
 } catch (e) {
     console.log(e.message);
