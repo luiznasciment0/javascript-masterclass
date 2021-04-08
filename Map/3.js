@@ -5,3 +5,5 @@ timeUnits.set("hour", 3600);
 console.log(timeUnits.forEach((value, key) => {
     console.log(key, value);
 }));
+console.log(timeUnits.has("hour"));
+console.log(timeUnits.has("day"));
