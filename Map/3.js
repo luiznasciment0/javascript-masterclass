@@ -7,3 +7,5 @@ console.log(timeUnits.forEach((value, key) => {
 }));
 console.log(timeUnits.has("hour"));
 console.log(timeUnits.has("day"));
+console.log(timeUnits.get("day"));
+console.log(timeUnits.get("hour"));
