@@ -5,6 +5,14 @@ function createArray() {
             target.length++;
             target[key] = value;
         },
+        get(target, key) {
+            if (typeof key === "string" && key.match(/\d+/)) {
+                if(!(key in target)) {
+                    throw new Error(`Property ${key} not found`);
+                }
+            }
+            return target[key];
+        },
         deleteProperty(target, key) {
             if (key in target) {
                 target.length--;
@@ -25,5 +33,5 @@ delete languages[1];
 delete languages[2];
 delete languages[3];
 
-console.log(languages);
+console.log(languages[3]);
 console.log(languages.length);
