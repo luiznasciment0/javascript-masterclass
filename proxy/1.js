@@ -3,20 +3,20 @@ function createArray() {
         set(target, key, value) {
             target.length = target.length || 0;
             target.length++;
-            target[key] = value;
+            Reflect.set(target, key, value);
         },
         get(target, key) {
             if (typeof key === "string" && key.match(/\d+/)) {
-                if(!(key in target)) {
+                if(!(Reflect.has(target, key))) {
                     throw new Error(`Property ${key} not found`);
                 }
             }
-            return target[key];
+            return Reflect.get(target, key);
         },
         deleteProperty(target, key) {
-            if (key in target) {
+            if (Reflect.has(target, key)) {
                 target.length--;
-                delete target[key];
+                Reflect.deleteProperty(target, key);
             }
         }
     });
