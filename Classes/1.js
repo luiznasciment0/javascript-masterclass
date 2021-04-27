@@ -1,5 +1,12 @@
-class Square {
+class Shape {
+    toString () {
+        return `area ${this.calculateArea()}`
+    }
+}
+
+class Square extends Shape {
     constructor(side) {
+        super();
         this.side = side;
     }
 
@@ -8,7 +15,7 @@ class Square {
     }
     
     toString() {
-        return `side: ${this.side}, area: ${this.calculateArea()}`
+        return `side: ${this.side}, ${super.toString()}`
     }
 
     static fromArea(area) {
@@ -24,8 +31,9 @@ const square2 = Square.fromArea(16);
 console.log(square2);
 console.log(square2.calculateArea());
 
-class Circle {
+class Circle extends Shape {
     constructor(radius) {
+        super();
         this.radius = radius;
     }
 
@@ -34,7 +42,7 @@ class Circle {
     }
 
     toString() {
-        return `radius: ${this.radius}, area: ${this.calculateArea()}`;
+        return `radius: ${this.radius}, ${super.toString()}`;
     }
 
     static fromArea(area) {
