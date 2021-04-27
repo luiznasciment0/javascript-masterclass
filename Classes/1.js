@@ -8,7 +8,7 @@ class Square {
     }
     
     toString() {
-        return `side: ${this.side}`
+        return `side: ${this.side}, area: ${this.calculateArea()}`
     }
 }
 const square = new Square(4);
