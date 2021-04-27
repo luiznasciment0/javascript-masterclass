@@ -1,5 +1,5 @@
-import { Parser } from './parser'
-import { DatabaseError } from './database-error'
+import Parser from './parser'
+import DatabaseError from './database-error'
 
 export class Database {
     constructor() {

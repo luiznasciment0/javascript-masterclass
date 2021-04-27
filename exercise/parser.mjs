@@ -1,4 +1,4 @@
-export class Parser {
+export default class Parser {
     constructor() {
         this.commands = new Map();
         this.commands.set("createTable", /create table ([a-z]+) \((.+)\)/);
