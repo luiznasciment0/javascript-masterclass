@@ -9,8 +9,20 @@ function sum(a, b) {
 
 (async function() {
     try {
-        const a = await sum(2);
-        const b = await sum(4, 4);
+        const functions = [
+            sum(2, 2),
+            sum(4, 4)
+        ];
+
+        const results = [];
+
+        for (let fn of functions) {
+            const result = await fn;
+            results.push(result);
+        }
+
+        const [a, b] = results;
+        
         const result = await sum(a, b);
         console.log(result);
     } catch (e) {
