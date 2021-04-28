@@ -16,8 +16,7 @@ function sum(a, b) {
 
         const results = [];
 
-        for (let fn of functions) {
-            const result = await fn;
+        for await (let result of functions) {
             results.push(result);
         }
 
